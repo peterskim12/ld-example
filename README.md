@@ -6,10 +6,10 @@ This is a small project to show how to add feature flags to a Python script. In 
 
 There are four named users for whom there are rules to target specific octaves:
 
-peter: 5
-rafael: 3
-sung: 7
-mateo: 8
+- peter: 5
+- rafael: 3
+- sung: 7
+- mateo: 8
 
 My 11yo son Rafael's voice has been deepening so I gave him the lowest octave.
 
@@ -22,6 +22,7 @@ Python3 and pip3 are installed.
 Install required modules:
 
 `pip3 install musicalbeeps`
+
 `pip3 install launchdarkly-server-sdk`
 
 ### Get code
