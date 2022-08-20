@@ -2,7 +2,11 @@
 
 ## Overview
 
-This is a small project to show how to add feature flags to a Python script. In this case, this Python script uses [musicalbeeps](https://pypi.org/project/musicalbeeps/) to play the C note at various octaves depending on the user. 
+This is a small project to show how to add feature flags to a Python script. 
+
+One way feature flags can be utilized is to make a website or application behave differently based on how we decide to segment users. This could be by geography, demographics, or any other information we have about the user or request. We may segment users based on whether they're a `standard` user or a user who's opted in to a `beta` program to get bleeding edge features. Or we may choose to deliver different features to different geographic markets for various business reasons.
+
+In this case, this Python script uses [musicalbeeps](https://pypi.org/project/musicalbeeps/) to play the C note at various octaves depending on the user which we identify using a username that's passed to the LaunchDarkly `variation()` method. 
 
 There are four named users for whom there are rules to target specific octaves:
 
