@@ -2,7 +2,6 @@ import musicalbeeps
 import ldclient
 from ldclient.config import Config
 import argparse
-from dotenv import load_dotenv
 import os
 
 def show_message(s):
@@ -11,18 +10,9 @@ def show_message(s):
 
 # Initialize the ldclient with your environment-specific SDK key.
 if __name__ == "__main__":
-    load_dotenv()
-    ldclient.set_config(Config(os.environ["ld_api"]))
+    # Get ld_api from environment variable
+    ldclient.set_config(Config(os.environ.get('ld_api')))
     client = ldclient.get()
-
-    player = musicalbeeps.Player(volume=0.5, mute_output=False)
-
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--user', default='peter'), 
-
-    args = vars(parser.parse_args())
-    username = args['user']
 
     # The SDK starts up the first time ldclient.get() is called.
     if ldclient.get().is_initialized():
@@ -30,6 +20,14 @@ if __name__ == "__main__":
     else:
         show_message("SDK failed to initialize")
         exit()
+
+    player = musicalbeeps.Player(volume=0.5, mute_output=False)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--user', default='peter'), 
+
+    args = vars(parser.parse_args())
+    username = args['user']
 
     # Set up the user properties. This user should appear on your LaunchDarkly users dashboard
     # soon after you run the demo.
